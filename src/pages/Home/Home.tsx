@@ -1,7 +1,7 @@
 /*
  * @Author: Jason
  * @Date: 2023-11-10 09:31:48
- * @LastEditTime: 2023-11-22 16:46:16
+ * @LastEditTime: 2023-11-22 18:05:28
  * @LastEditors: Jason
  */
 // import React from 'react'
@@ -13,6 +13,9 @@ import Going from '@/assets/icon/going.png'
 import Pending from '@/assets/icon/pending.png'
 import All from '@/assets/icon/all.png'
 import Add from '@/assets/icon/add.png'
+
+// 接口
+import * as HomeServer from '@/services/home'
 
 const Home = () => {
   const navigate = useNavigate()
@@ -45,6 +48,13 @@ const Home = () => {
     }
   ]
 
+  // test请求
+  const getApi = () => {
+    HomeServer.getList().then(res => {
+      console.log('res', res)
+    })
+  }
+
 
   return (
     <div className="home-page">
@@ -64,7 +74,7 @@ const Home = () => {
       </div>
 
       {/* 新增按钮 */}
-      <img className='add' src={Add} alt="" />
+      <img className='add' src={Add} alt="" onClick={getApi} />
     </div>
   )
 }
