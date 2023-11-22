@@ -1,7 +1,7 @@
 /*
  * @Author: Jason
  * @Date: 2023-11-10 09:31:48
- * @LastEditTime: 2023-11-22 16:22:58
+ * @LastEditTime: 2023-11-22 16:46:16
  * @LastEditors: Jason
  */
 // import React from 'react'
@@ -16,14 +16,6 @@ import Add from '@/assets/icon/add.png'
 
 const Home = () => {
   const navigate = useNavigate()
-
-  const goDetail = () => {
-    navigate('/detail', {
-      state: {
-        msg: 'This is from Home'
-      }
-    })
-  }
 
   // 按钮组
   const buttonList = [
@@ -58,7 +50,7 @@ const Home = () => {
     <div className="home-page">
       {/* 标题 */}
       <div className="title">Todoooooo</div>
-      {/* <button onClick={goDetail}>点击跳转</button> */}
+
       {/* 按钮组 */}
       <div className="button-wrap">
         {
@@ -70,7 +62,9 @@ const Home = () => {
           ))
         }
       </div>
-      <span className="text">文字</span>
+
+      {/* 新增按钮 */}
+      <img className='add' src={Add} alt="" />
     </div>
   )
 }
