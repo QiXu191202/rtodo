@@ -1,14 +1,14 @@
 /*
  * @Author: Jason
  * @Date: 2023-11-22 17:13:52
- * @LastEditTime: 2023-11-22 17:56:45
+ * @LastEditTime: 2023-11-23 11:12:04
  * @LastEditors: Jason
  */
 
 import axios from 'axios'
 
 const instance = axios.create({
-  baseURL: 'http://127.0.0.1:4523/m1/3297795-0-default',
+  baseURL: 'http://jsonplaceholder.typicode.com',
   timeout: 60000,
   headers: {
     'Content-Type': 'application/json'
@@ -22,8 +22,8 @@ instance.interceptors.request.use((config) => {
 })
 
 instance.interceptors.response.use(res => {
-  const { code } = res.data;
-  if (code !== 200 && code !== 0 && code !== 2000) {
+  const { status } = res;
+  if (status !== 200 && status !== 0 && status !== 2000) {
     console.log('请求成功，但被拦截的数据', res)
     throw res.data;
   }
